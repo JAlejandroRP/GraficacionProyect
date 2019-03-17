@@ -1,9 +1,9 @@
-Debug/main.cpp.o: main.cpp Object.h Vertex.h Face.h Reader.h
+Debug/main.cpp.o: main.cpp Reader.h Object.h Transformation.h Model.h
+
+Reader.h:
 
 Object.h:
 
-Vertex.h:
+Transformation.h:
 
-Face.h:
-
-Reader.h:
+Model.h:

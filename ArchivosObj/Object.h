@@ -3,33 +3,32 @@
 #include <cstdlib>
 #include <iostream>
 #include <iomanip>
-#include <list>
-#include "Vertex.h"
-#include "Face.h"
+#include "armadillo"
 
 using namespace std;
+
+/*  This class stores everything that a Object needs
+ *  Faces, Vertices, Name, max and min coords.
+ */
 class Object
 {
 public:
-    Object();
+    Object(vector<arma::dvec> vertices, vector<vector<int>> faces);
+    Object(string name);
     ~Object();
-    char name[50];
-    
+    void AddVertex(vector<double> v);
+    void AddFace(vector<int> f);
     void Print(char *op);
-    
-    void ReadVertex(ifstream &read);
     void ShowVertex();
-    Vertex newVertex(char line[]);
-    
-    int ReadFaces(ifstream &read);
     void ShowFaces();
-    Face newFace(char line[]);
-    
-    char* SlashSplit(char line[]);
-private:
-    list<Vertex> vertexs;
-    list<Face> faces;
-    //Vertex v;
+    void SetName(string name);
+    void Cal_AABB();
+    Object getObject() { return *this; }
+/*variables*/
+    string name;
+    vector<arma::dvec> vertices;
+    vector<vector<int>> faces;
+    double AABB[3][3];
 };
 
 #endif // OBJ_H

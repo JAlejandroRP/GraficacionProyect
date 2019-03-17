@@ -1,7 +1,6 @@
 #ifndef READER_H
 #define READER_H
 #include <fstream>
-#include <list>
 #include "Object.h"
 
 using namespace std;
@@ -9,14 +8,14 @@ using namespace std;
 class Reader
 {
 public:
-    Reader(char *file);
+    Reader();
     ~Reader();
-    
-    void ReadFile();
-    void ShowObjects();
-    list<Object> objects;
-    char *file;
-
+    vector<Object> ReadFile(std::string file_name);
+    void ReadVertex(ifstream &read, vector<Object> &objects);
+    void ReadFaces(ifstream &read, vector<Object> &objects);
+    vector<double> newVertex(char line[]);
+    vector<int> newFace(char line[]);
+    std::string SlashSplit(char line[]);
 };
 
 #endif // READER_H

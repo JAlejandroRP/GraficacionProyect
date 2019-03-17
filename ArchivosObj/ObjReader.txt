@@ -1,0 +1,1 @@
+./Debug/main.cpp.o ./Debug/Reader.cpp.o ./Debug/Model.cpp.o ./Debug/Transformation.cpp.o ./Debug/Object.cpp.o
